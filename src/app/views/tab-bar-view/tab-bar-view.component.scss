@@ -1,0 +1,28 @@
+
+.container {
+  width: 100%;;
+  background-color: red;
+    // height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+.tab-bar {
+    position: absolute;
+    bottom: 10px; /* Adjust the space from the bottom */
+    width: 90%; /* Make the tab bar a bit narrower */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #000;
+    padding: 10px;
+    border-radius: 20px; /* Rounded corners for the entire bar */
+    margin: 10px auto; /* Space around the bar and center it horizontally */
+  }
+  
+  .tab-icon {
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+  }
