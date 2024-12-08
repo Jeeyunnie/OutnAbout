@@ -1,5 +1,18 @@
+.container {
+  height: 100vh;
+}
+
 .image {
   background-image: url('../../../../public/assets/start.png');
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
 }
 
 h1 {
