@@ -35,6 +35,6 @@ export class TabBarViewComponent {
 
   on_community() {
     this.selected_tab = 'community';
-    // this.router.navigate(['/community']);
+    this.router.navigate(['/community']);
   }
 }
