@@ -1,54 +1,53 @@
 <div class="container">
-  <!-- Location Text and Icon (at the top) -->
-  <div class="location-container">
-    <span class="location-icon">
-      <i class="fa fa-map-marker"></i>
-    </span>
-    <span class="location-text">Park, Toronto</span>
-  </div>
-
-  <!-- Search Bar -->
-  <div class="search-bar">
-    <input type="text" placeholder="Search..." />
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-  </div>
-
-  <!-- Good Deals Text -->
-  <div class="good-deals">
-    <span>Good Deals</span>
-  </div>
-
-  <!-- Orange Boxes Section -->
-  <div class="orange-boxes">
-    <div class="orange-box">
-      <img src="path/to/your/image1.jpg" alt="Deal 1" />
+  <div class="inner-wrapper">
+    <!-- Location Section -->
+    <div class="location-container">
+      <span class="location-icon">
+        <i class="fa fa-map-marker"></i>
+      </span>
+      <span class="location-text">Park, Toronto</span>
     </div>
-    <div class="orange-box">
-      <img src="path/to/your/image2.jpg" alt="Deal 2" />
-    </div>
-    <div class="orange-box">
-      <img src="path/to/your/image3.jpg" alt="Deal 3" />
-    </div>
-  </div>
 
-    <!-- Explore the Neighborhood Text -->
-    <div class="explore-text">
-      <span>Explore the Neighborhood</span>
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input [(ngModel)]="search_term" type="text" placeholder="Search by foods" />
+      <span class="search-icon">
+        <i class="fa fa-search"></i>
+      </span>
+
+      <!-- Autocomplete -->
+      <ul *ngIf="search_term && filtered_suggestions.length > 0" class="autocomplete-list">
+        <li *ngFor="let suggestion of filtered_suggestions" (click)="navigateToUrl()">
+          {{ suggestion }}
+        </li>
+      </ul>
     </div>
-  
-    <!-- Yellow Boxes Section -->
-    <div class="yellow-boxes">
-      <div class="yellow-box">
-        <img src="path/to/your/image1.jpg" alt="Neighborhood 1" />
+
+    <!-- Good Deals Section -->
+    <div class="good-deals">
+      <div class="title-texts">
+        <span>Good Deals</span>
+        <span class="see-all">See all ></span>
       </div>
-      <div class="yellow-box">
-        <img src="path/to/your/image2.jpg" alt="Neighborhood 2" />
+      <div class="gd-content">
+        <div class="gd-images" *ngFor="let deal of good_deals">
+          <img [src]="deal.src" [alt]="deal.alt" />
+        </div>
       </div>
-      
     </div>
 
-  <!-- Tab Bar -->
-  <app-tab-bar-view></app-tab-bar-view>
+    <!-- Explore the Neighborhood  -->
+    <div class="explore-neighbourhood">
+      <div class="title-texts">
+        <span>Explore the Neighborhood</span>
+        <span class="see-all">See all ></span>
+      </div>
+      <div class="en-content">
+        <div class="en-images" *ngFor="let neighborhood of explore_neighborhood">
+          <img [src]="neighborhood.src" [alt]="neighborhood.alt" />
+        </div>
+      </div>
+    </div>
+    <app-tab-bar-view></app-tab-bar-view>
+  </div>
 </div>
